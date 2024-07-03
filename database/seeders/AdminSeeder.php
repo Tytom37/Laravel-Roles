@@ -22,5 +22,12 @@ class AdminSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
         ])->assignRole('writer', 'admin');
+
+        User::create([
+            'name' => 'test',
+            'email' => 'test@test.com',
+            'email_verified_at' => now(),
+            'password' => static::$password ??= Hash::make('password'),
+        ])->assignRole('writer', 'user');
     }
 }
