@@ -21,13 +21,20 @@ class AdminSeeder extends Seeder
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
-        ])->assignRole('writer', 'admin');
+        ])->assignRole('admin');
 
         User::create([
-            'name' => 'test',
-            'email' => 'test@test.com',
+            'name' => 'user',
+            'email' => 'user@user.com',
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
-        ])->assignRole('writer', 'user');
+        ])->assignRole('user');
+
+        User::create([
+            'name' => 'editor',
+            'email' => 'editor@editor.com',
+            'email_verified_at' => now(),
+            'password' => static::$password ??= Hash::make('password'),
+        ])->assignRole('editor');
     }
 }
