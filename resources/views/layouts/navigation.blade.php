@@ -18,6 +18,11 @@
                     <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('Users') }}
                     </x-nav-link>
+                    @can('visit logs')
+                    <x-nav-link :href="route('user.logs')" :active="request()->routeIs('user.logs')">
+                        {{ __('Logs') }}
+                    </x-nav-link>
+                    @endcan
                     @role('admin')
                     <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
                         {{ __('Admin') }}

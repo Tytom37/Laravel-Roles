@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/logs', [UserController::class, 'logs'])->name('user.logs');
     Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
     Route::post('/user', [UserController::class, 'store'])->name('user.store');
