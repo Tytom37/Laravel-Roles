@@ -16,7 +16,7 @@
                     @foreach($logs as $log)
                         <tr class="bg-gray-200 text-gray-600 text-sm leading-normal">
                             <td class="py-3 px-6 text-left">{{ $log->created_at }} - {{ $log->updated_at }}</td>
-                            <td class="py-3 px-6 text-left">{{ $log->log_entry }} - {{ $log->user->name }}</td>
+                            <td class="py-3 px-6 text-left flex"><h1 class="uppercase">{{ $log->user->name }}</h1>&nbsp;-&nbsp;{{ $log->log_entry }}</td>
                         </tr>
                     @endforeach
                     </tbody>

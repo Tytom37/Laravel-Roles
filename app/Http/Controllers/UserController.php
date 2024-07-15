@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Log;
 use App\Events\UserLog;
+use App\Jobs\CustomerJob;
 use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
@@ -82,5 +83,10 @@ class UserController extends Controller
         abort_if(Gate::denies('visit logs'), 403);
         $logs = Log::all();
         return view('logs', compact('logs'));
+    }
+
+    public function sendEmail() {
+        dispatch(new CustomerJob());
+        dd('Email has been delivered.');
     }
 }
